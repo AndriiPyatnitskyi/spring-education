@@ -26,7 +26,7 @@ public abstract class AbstractRobot implements InitializingBean, DisposableBean 
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("### init ###");
+        System.out.println(toString());
     }
 
 

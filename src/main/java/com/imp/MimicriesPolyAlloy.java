@@ -15,4 +15,5 @@ public class MimicriesPolyAlloy extends AbstractRobot implements Robot {
         super(hand, leg, colour);
     }
 
+
 }
