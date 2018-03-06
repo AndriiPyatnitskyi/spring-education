@@ -3,16 +3,21 @@ package com.imp;
 import com.interfaces.Hand;
 import com.interfaces.Leg;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public abstract class AbstractRobot {
     private Hand hand;
     private Leg leg;
     private String colour;
 
-    public void initMethod(){
+    @PostConstruct
+    public void init(){
         System.out.println("!!!     init    !!!");
     }
 
-    public void destroyMethod(){
+    @PreDestroy
+    public void destroy(){
         System.out.println("!!!     destroy    !!!");
     }
 
