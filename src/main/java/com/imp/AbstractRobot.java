@@ -2,21 +2,17 @@ package com.imp;
 
 import com.interfaces.Hand;
 import com.interfaces.Leg;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-public abstract class AbstractRobot {
+public abstract class AbstractRobot implements InitializingBean, DisposableBean {
     private Hand hand;
     private Leg leg;
     private String colour;
 
-    @PostConstruct
-    public void init(){
-        System.out.println("!!!     init    !!!");
-    }
-
-    @PreDestroy
     public void destroy(){
         System.out.println("!!!     destroy    !!!");
     }
@@ -27,6 +23,12 @@ public abstract class AbstractRobot {
         System.out.println("colour is " + colour);
         System.out.println();
     }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("### init ###");
+    }
+
 
     public AbstractRobot(Hand hand, Leg leg, String colour) {
         this.hand = hand;

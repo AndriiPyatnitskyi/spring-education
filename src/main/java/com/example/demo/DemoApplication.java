@@ -11,7 +11,7 @@ import org.springframework.context.*;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        ConfigurableApplicationContext  context = new ClassPathXmlApplicationContext("context.xml");
 
 
 
@@ -24,6 +24,8 @@ public class DemoApplication {
 //		System.out.println(mimicriesPolyAlloy.toString());
 //		mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
 //		System.out.println(mimicriesPolyAlloy.toString());
+
+        context.close();
 
 	}
 }
