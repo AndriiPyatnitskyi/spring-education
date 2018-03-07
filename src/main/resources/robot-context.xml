@@ -7,7 +7,10 @@
 
     <import resource="robot-details-context.xml"/>
 
-    <bean id="MimicriesPolyAlloy" class="com.imp.MimicriesPolyAlloy">
+    <bean id="MimicriesPolyAlloy"
+          class="com.imp.MimicriesPolyAlloy"
+          parent="abstractRobot"
+    >
         <constructor-arg name="hand"
                          ref="SonyHand"
                          index="0"
@@ -23,13 +26,24 @@
     </bean>
 
 
-    <bean id="T1000" class="com.imp.T1000"
+    <bean id="T1000"
+          class="com.imp.T1000"
+          parent="abstractRobot"
           p:hand-ref="ToshibaHand"
           p:leg-ref="ToshibaLeg"
-          p:colour="green">
+          p:colour="green"
+    >
         <constructor-arg name="hand" ref="ToshibaHand" index="0" type="com.interfaces.Hand"/>
         <constructor-arg name="leg" ref="ToshibaLeg" index="1" type="com.interfaces.Leg"/>
         <constructor-arg name="colour" value="black" index="2" type="String"/>
     </bean>
+
+    <bean id="abstractRobot" abstract="true">
+        <constructor-arg name="hand" ref="ToshibaHand" index="0" type="com.interfaces.Hand"/>
+        <constructor-arg name="leg" ref="ToshibaLeg" index="1" type="com.interfaces.Leg"/>
+        <constructor-arg name="colour" value="black" index="2" type="String"/>
+    </bean>
+
+
 
 </beans>

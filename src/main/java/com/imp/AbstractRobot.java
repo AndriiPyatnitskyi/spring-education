@@ -5,9 +5,6 @@ import com.interfaces.Leg;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 public abstract class AbstractRobot implements InitializingBean, DisposableBean {
     private Hand hand;
     private Leg leg;
