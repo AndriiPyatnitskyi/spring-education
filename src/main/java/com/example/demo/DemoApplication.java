@@ -1,32 +1,23 @@
 package com.example.demo;
 
-import com.interfaces.Leg;
 import com.interfaces.Robot;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.Lifecycle;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.*;
 
 public class DemoApplication {
-
 	public static void main(String[] args) {
         ConfigurableApplicationContext  context = new ClassPathXmlApplicationContext("context.xml");
-        Leg leg = (Leg) context.getBean("SonyLeg");
 
+		Robot mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
+		mimicriesPolyAlloy.printMe();
 
-//		Robot mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
-//		mimicriesPolyAlloy.printMe();
+		Robot t1000 = (Robot) context.getBean("T1000");
+		t1000 .printMe();
 
-//		Robot t1000 = (Robot) context.getBean("T1000");
-//		t1000 .printMe();
-
-//		System.out.println(mimicriesPolyAlloy.toString());
-//		mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
-//		System.out.println(mimicriesPolyAlloy.toString());
+		System.out.println(mimicriesPolyAlloy.toString());
+		mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
+		System.out.println(mimicriesPolyAlloy.toString());
 
         context.close();
-
 	}
 }

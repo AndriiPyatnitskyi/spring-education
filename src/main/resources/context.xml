@@ -1,52 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-        <!--отключаем автоматическое создание бинов при создании контекста-->
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
-       default-lazy-init="true"
->
-    <context:annotation-config />
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
 
-    <!--Описание бина с использованием констркутора-->
-    <!--scope="prototype" каждый раз создает новый объект. по умолчанию scope="singleton"-->
-    <bean id="MimicriesPolyAlloy" class="com.imp.MimicriesPolyAlloy" >
+    <context:annotation-config/>
 
-        <constructor-arg name="hand"
-                         ref="SonyHand"
-                         index="0"
-                         type="com.interfaces.Hand"/>
-        <constructor-arg name="leg"
-                         ref="SonyLeg"
-                         index="1"
-                         type="com.interfaces.Leg"/>
-        <constructor-arg name="colour"
-                         value="white"
-                         index="2"
-                         type="String"/>
-    </bean>
-
-
-    <!--Тут мы видим как сеттерры перетирают значения в конструкторе-->
-    <bean id="T1000" class="com.imp.T1000"
-          p:hand-ref="ToshibaHand"
-          p:leg-ref="ToshibaLeg"
-          p:colour="green"
-
-    >
-        <constructor-arg name="hand" ref="ToshibaHand" index="0" type="com.interfaces.Hand"/>
-        <constructor-arg name="leg" ref="ToshibaLeg" index="1" type="com.interfaces.Leg"/>
-        <constructor-arg name="colour" value="black" index="2" type="String"/>
-    </bean>
-
-
-    <bean id="SonyHand" class="com.imp.SonyHand"/>
-    <bean id="SonyLeg" class="com.imp.SonyLeg"/>
-
-    <bean id="ToshibaHand" class="com.imp.ToshibaHand"/>
-    <bean id="ToshibaLeg" class="com.imp.ToshibaLeg"/>
+    <import resource="robot-context.xml"/>
 
     <bean id="postProcessor" class="com.postprocessor.MyBeanPostProcessor"/>
-
 </beans>
