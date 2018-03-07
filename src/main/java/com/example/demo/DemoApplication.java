@@ -10,11 +10,12 @@ public class DemoApplication {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         RobotT1000Factory robotT1000Factory = ((RobotT1000Factory) context.getBean("robotT1000Factory"));
         Robot robotT1000 = robotT1000Factory.createRobotT1000();
-        Robot robotT10001 = robotT1000Factory.createRobotT1000();
-        Robot robotT10002 = robotT1000Factory.createRobotT1000();
-        System.out.println(robotT1000.toString());
-        System.out.println(robotT10001.toString());
-        System.out.println(robotT10002.toString());
+        robotT1000.printMe();
+//        Robot robotT10001 = robotT1000Factory.createRobotT1000();
+//        Robot robotT10002 = robotT1000Factory.createRobotT1000();
+//        System.out.println(robotT1000.toString());
+//        System.out.println(robotT10001.toString());
+//        System.out.println(robotT10002.toString());
 //		Robot mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
 //		mimicriesPolyAlloy.printMe();
 //

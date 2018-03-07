@@ -36,20 +36,28 @@
           p:colour="green"
           scope="prototype"
     >
+
         <constructor-arg name="hand" ref="ToshibaHand" index="0" type="com.interfaces.Hand"/>
         <constructor-arg name="leg" ref="ToshibaLeg" index="1" type="com.interfaces.Leg"/>
         <constructor-arg name="colour" value="black" index="2" type="String"/>
+
     </bean>
 
     <bean id="abstractRobot" abstract="true" depends-on="dataBsse">
         <constructor-arg name="hand" ref="ToshibaHand" index="0" type="com.interfaces.Hand"/>
         <constructor-arg name="leg" ref="ToshibaLeg" index="1" type="com.interfaces.Leg"/>
         <constructor-arg name="colour" value="black" index="2" type="String"/>
+
+        <replaced-method name="printMe" replacer="robotReplacer"/>
+
     </bean>
 
     <bean id="robotT1000Factory" class="com.factory.RobotT1000Factory">
         <lookup-method name="createRobotT1000" bean="T1000"/>
     </bean>
+
+
+    <bean id="robotReplacer" class="com.replacer.RobotReplacer"/>
 
     <bean id="dataBsse" class="com.example.demo.DataBase"/>
 
