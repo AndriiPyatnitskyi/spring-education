@@ -10,8 +10,14 @@ public abstract class AbstractRobot implements InitializingBean, DisposableBean 
     private Leg leg;
     private String colour;
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(toString() + ": !!! afterPropertiesSet of InitializingBean invoked !!!");
+    }
+
+    @Override
     public void destroy(){
-        System.out.println("!!!     destroy    !!!");
+        System.out.println(toString() + ": !!! destroy of DisposableBean invoked !!!");
     }
 
     public void printMe() {
@@ -20,12 +26,6 @@ public abstract class AbstractRobot implements InitializingBean, DisposableBean 
         System.out.println("colour is " + colour);
         System.out.println();
     }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println(toString());
-    }
-
 
     public AbstractRobot(Hand hand, Leg leg, String colour) {
         this.hand = hand;

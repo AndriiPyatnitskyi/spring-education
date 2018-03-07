@@ -18,11 +18,12 @@ public class T1000 extends AbstractRobot implements Robot {
         super.printMe();
     }
 
+    //создавался для вызова из init-method, default-init-method
     public void initT1000(){
         System.out.println("@@@ init T1000 @@@");
     }
 
-
+    //создавался для вызова из destroy-method, default-destroy-method
     private void destroyT1000() {
         System.out.println("@@@ destroy T1000 @@@");
     }

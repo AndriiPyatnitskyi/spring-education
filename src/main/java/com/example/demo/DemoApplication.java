@@ -9,14 +9,14 @@ public class DemoApplication {
         ConfigurableApplicationContext  context = new ClassPathXmlApplicationContext("context.xml");
 
 		Robot mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
-		mimicriesPolyAlloy.printMe();
-
-		Robot t1000 = (Robot) context.getBean("T1000");
-		t1000 .printMe();
-
-		System.out.println(mimicriesPolyAlloy.toString());
-		mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
-		System.out.println(mimicriesPolyAlloy.toString());
+//		mimicriesPolyAlloy.printMe();
+//
+//		Robot t1000 = (Robot) context.getBean("T1000");
+//		t1000 .printMe();
+//
+//		System.out.println(mimicriesPolyAlloy.toString());
+//		mimicriesPolyAlloy = (Robot)context.getBean("MimicriesPolyAlloy");
+//		System.out.println(mimicriesPolyAlloy.toString());
 
         context.close();
 	}

@@ -12,5 +12,5 @@
 
     <import resource="robot-context.xml"/>
 
-    <bean id="postProcessor" class="com.postprocessor.MyBeanPostProcessor"/>
+    <!--<bean id="postProcessor" class="com.postprocessor.MyBeanPostProcessor"/>-->
 </beans>
